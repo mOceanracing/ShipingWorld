@@ -4,6 +4,7 @@ import modell.*;
 
 import java.util.AbstractList;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public class main {
 
     public static void main(String[] args) {
         createNewWorld();
+        createNewMarketPlace();
         createCompany("asd", 3);
     }
 
@@ -31,20 +33,29 @@ public class main {
 
         world = new World((ArrayList<Continent>) continentList);
 
-        System.out.print(world.getContinentList().get(0).getHarborList().get(0).getCoordinates().toString() + "\n");
-        System.out.print(world.getContinentList().get(0).getHarborList().get(1).getCoordinates().toString() + "\n");
-        System.out.print(world.getContinentList().get(0).getHarborList().get(2).getCoordinates().toString() + "\n");
-        System.out.print(world.getContinentList().get(0).getHarborList().get(3).getCoordinates().toString() + "\n");
+//        System.out.print(world.getContinentList().get(0).getHarborList().get(0).getCoordinates().toString() + "\n");
+//        System.out.print(world.getContinentList().get(0).getHarborList().get(1).getCoordinates().toString() + "\n");
+//        System.out.print(world.getContinentList().get(0).getHarborList().get(2).getCoordinates().toString() + "\n");
+//        System.out.print(world.getContinentList().get(0).getHarborList().get(3).getCoordinates().toString() + "\n");
+    }
+
+    public static void createNewMarketPlace() {
+        Container container1 = new Container(20000,3000, new Date());
+        MarketPlace.getInstance().addContainerToTheMarkedPlace(container1);
     }
 
     public static ShipingCompany createCompany(String name, int nrOfShips) {
         List ships = new ArrayList<>();
+        ShipingCompany shipingCompany = new ShipingCompany(name);
 
         while (nrOfShips > 0) {
-            ships.add(new Ship(1, 1000, 50));
+            ships.add(new Ship(10, 100000, 23, shipingCompany));
             nrOfShips = nrOfShips - 1;
         }
-        return new ShipingCompany(name, ships);
+
+        shipingCompany.setShips(ships);
+
+        return shipingCompany;
     }
 
 

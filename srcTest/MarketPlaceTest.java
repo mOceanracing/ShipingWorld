@@ -16,7 +16,7 @@ public class MarketPlaceTest {
     @Test
     public void acceptOfferTest() {
         Container container = new Container(1000, 3000, new Date(01, 01, 2018));
-        ShipingCompany company = new ShipingCompany("Name", new ArrayList<>());
+        ShipingCompany company = new ShipingCompany("Name");
 
         marketPlace.addContainerToTheMarkedPlace(container);
 

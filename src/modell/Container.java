@@ -15,9 +15,9 @@ public class Container {
     private Date expectedArrivingDate;
     private Date arrivingDate;
 
-    public Container(int weight, int price, Date expectedArrivingDate) {
+    public Container(int weight, int salary, Date expectedArrivingDate) {
         this.weight = weight;
-        this.salary = price;
+        this.salary = salary;
         this.expectedArrivingDate = expectedArrivingDate;
         this.startHarbor = new Harbor("", 0, 0, new Coordinates(0,0,0,0,0,0));
         this.targetHarbor = new Harbor("", 0, 0, new Coordinates(0,0,0,0,0,0));

@@ -1,6 +1,7 @@
 package modell;
 
 import controll.CoordinateCalculator;
+import controll.OfferCalculator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,8 @@ public class ShipingCompany {
     private int asset = 100000;
 
 
-    public ShipingCompany(String companyname, List ships) {
+    public ShipingCompany(String companyname) {
         this.companyName = companyname;
-        this.ships = ships;
     }
 
     public List getShips() {
@@ -26,6 +26,10 @@ public class ShipingCompany {
 
     public String getCompanyName() {
         return companyName;
+    }
+
+    public void setShips(List ships) {
+        this.ships = ships;
     }
 
     public int getAsset() {

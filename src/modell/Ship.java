@@ -1,5 +1,7 @@
 package modell;
 
+import controll.OfferCalculator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,18 +10,25 @@ import java.util.List;
  */
 public class Ship {
     private int containerCapacity;
+    private int containersActualOnBoard;
     private int speed;
     private int maxSpeed;
     private int money;
     private int fuelCapacity;
     private int fuelStand;
     private double pricePerMile;
+    private ShipingCompany shipingCompany;
     private List<Container> containers = new ArrayList<>();
 
-    public Ship(int containerCapacity, int money, int maxSpeed) {
+    public Ship(int containerCapacity, int money, int maxSpeed, ShipingCompany shipingCompany) {
         this.containerCapacity = containerCapacity;
         this.money = money;
         this.maxSpeed = maxSpeed;
+        this.shipingCompany = shipingCompany;
+        this.containersActualOnBoard = 0;
+        this.speed = 0;
+
+        new OfferCalculator().getBestOffersForShip(this, this.getShipingCompany());
     }
 
     public int getContainerCapacity() {
@@ -88,5 +97,21 @@ public class Ship {
 
     public void removeContainers(Container container) {
         containers.remove(containers.indexOf(container));
+    }
+
+    public int getContainersActualOnBoard() {
+        return containersActualOnBoard;
+    }
+
+    public void setContainersActualOnBoard(int containersActualOnBoard) {
+        this.containersActualOnBoard = containersActualOnBoard;
+    }
+
+    public ShipingCompany getShipingCompany() {
+        return shipingCompany;
+    }
+
+    public void setShipingCompany(ShipingCompany shipingCompany) {
+        this.shipingCompany = shipingCompany;
     }
 }
