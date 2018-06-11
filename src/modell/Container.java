@@ -8,7 +8,7 @@ import java.util.Date;
 public class Container {
     private int maxWeight;
     private int weight;
-    private int price;
+    private int salary;
     private Harbor startHarbor;
     private Harbor targetHarbor;
     private Date sendingDate;
@@ -17,7 +17,7 @@ public class Container {
 
     public Container(int weight, int price, Date expectedArrivingDate) {
         this.weight = weight;
-        this.price = price;
+        this.salary = price;
         this.expectedArrivingDate = expectedArrivingDate;
         this.startHarbor = new Harbor("", 0, 0, new Coordinates(0,0,0,0,0,0));
         this.targetHarbor = new Harbor("", 0, 0, new Coordinates(0,0,0,0,0,0));
@@ -39,12 +39,12 @@ public class Container {
         this.weight = weight;
     }
 
-    public int getPrice() {
-        return price;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public Date getSendingDate() {
@@ -89,6 +89,6 @@ public class Container {
 
     @Override
     public String toString() {
-        return "Weight: " + getWeight() + " Price: " + getPrice() + " Expected arrivingDate:" + getExpectedArrivingDate();
+        return "Weight: " + getWeight() + " Price: " + getSalary() + " Expected arrivingDate:" + getExpectedArrivingDate();
     }
 }

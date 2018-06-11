@@ -12,6 +12,8 @@ public class ShipingCompany {
 
     private String companyName = "";
     private List ships = new ArrayList<>();
+    private int asset = 100000;
+
 
     public ShipingCompany(String companyname, List ships) {
         this.companyName = companyname;
@@ -26,38 +28,15 @@ public class ShipingCompany {
         return companyName;
     }
 
-
-    /**
-     * Calculate the offers and return if it´s commercial.
-     */
-    private boolean offerCalc(Container container, Ship ship) {
-        if (clacCost(container, ship) <= clacSalary(container, ship)) {
-            return true;
-        } else {
-            return false;
-        }
+    public int getAsset() {
+        return asset;
     }
 
-    private double clacCost(Container container, Ship ship) {
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculator(container.getStartHarbor().getCoordinates(), container.getTargetHarbor().getCoordinates());
-        return (coordinateCalculator.distance().get(0) + 1) * ship.getPricePerMile();
+    public void addBill(int bill) {
+        this.asset = this.asset - bill;
     }
 
-    private double clacSalary(Container container, Ship ship) {
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculator(container.getStartHarbor().getCoordinates(), container.getTargetHarbor().getCoordinates());
-
-        for (ship.getContainers(): Container tempContainer) {
-
-        }ship.getContainers().
-
-        if (((coordinateCalculator.distance().get(0) + 1) * ship.getPricePerMile()) < container.getPrice()) {
-            return true;
-        } else {
-            return false;
-        }
+    public void addSalary(int Salary) {
+        this.asset = this.asset + Salary;
     }
-
-
-
-
 }
