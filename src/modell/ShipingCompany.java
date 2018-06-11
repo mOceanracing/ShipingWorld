@@ -46,9 +46,9 @@ public class ShipingCompany {
     private double clacSalary(Container container, Ship ship) {
         CoordinateCalculator coordinateCalculator = new CoordinateCalculator(container.getStartHarbor().getCoordinates(), container.getTargetHarbor().getCoordinates());
 
+        for (ship.getContainers(): Container tempContainer) {
 
-
-
+        }ship.getContainers().
 
         if (((coordinateCalculator.distance().get(0) + 1) * ship.getPricePerMile()) < container.getPrice()) {
             return true;

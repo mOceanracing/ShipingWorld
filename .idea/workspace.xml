@@ -25,8 +25,8 @@
       <file leaf-file-name="ShipingCompany.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modell/ShipingCompany.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21882741">
-              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.7085054">
+              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,8 +193,8 @@
         <option value="$PROJECT_DIR$/src/modell/Container.java" />
         <option value="$PROJECT_DIR$/src/controll/CoordinateCalculator.java" />
         <option value="$PROJECT_DIR$/src/modell/Ship.java" />
-        <option value="$PROJECT_DIR$/src/modell/ShipingCompany.java" />
         <option value="$PROJECT_DIR$/src/modell/World.java" />
+        <option value="$PROJECT_DIR$/src/modell/ShipingCompany.java" />
       </list>
     </option>
   </component>
@@ -1356,8 +1356,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modell/ShipingCompany.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21882741">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.7085054">
+          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
