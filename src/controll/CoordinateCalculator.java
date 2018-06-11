@@ -19,29 +19,37 @@ public class CoordinateCalculator {
         this.target = target;
     }
 
-    public ArrayList<Integer> distance() {
-        List distance = new ArrayList<Integer>();
-        double distancea = new Double(0);
+    public double distance(Coordinates start, Coordinates target) {
+        return distance(
+                getDDCoordinatesFromDMSCoordinatesEast(start),
+                getDDCoordinatesFromDMSCoordinatesNorth(start),
+                getDDCoordinatesFromDMSCoordinatesEast(target),
+                getDDCoordinatesFromDMSCoordinatesNorth(target));
 
-        double distanceHrsN = target.getHoursNorth() - start.getHoursNorth();
-        double distanceMinN = target.getMinutesNorth() - start.getMinutesNorth();
-        double distanceSecN = target.getSecondsNorth() - start.getSecondsNorth();
-
-        double distanceHrsE = target.getHoursNorth() - start.getHoursNorth();
-        double distanceMinE = target.getMinutesNorth() - start.getMinutesNorth();
-        double distanceSecE = target.getSecondsNorth() - start.getSecondsNorth();
-
-        double distanceHrs = Math.sqrt((distanceHrsN * distanceHrsN) + (distanceHrsE * distanceHrsE));
-        double distanceMin = Math.sqrt((distanceMinN * distanceMinN) + (distanceMinE * distanceMinE));
-        double distanceSec = Math.sqrt((distanceSecN * distanceSecN) + (distanceSecE * distanceSecE));
-
-
-        distance.add((int) distanceHrs);
-        distance.add((int) distanceMin);
-        distance.add((int) distanceSec);
-
-        return (ArrayList<Integer>) distance;
     }
+
+    public double distance(double lat1, double lon1, double lat2, double lon2) {
+        int radius = 6371;
+        double lat = Math.toRadians(lat2 - lat1);
+        double lon = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(lat / 2) * Math.sin(lat / 2) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.sin(lon / 2) * Math.sin(lon / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double d = radius * c;
+        return Math.abs(d);
+    }
+
+    public double getDDCoordinatesFromDMSCoordinatesNorth(Coordinates coordinates) {
+        double ddCoordinates = coordinates.getHoursNorth();
+        double ddCooordinatesMinSec = (((double) coordinates.getMinutesNorth() / 60)) + (((double) coordinates.getSecondsNorth() / 60) / 100);
+        return ddCoordinates + ddCooordinatesMinSec;
+    }
+
+    public double getDDCoordinatesFromDMSCoordinatesEast(Coordinates coordinates) {
+        double ddCoordinates = coordinates.getHoursEast();
+        double ddCooordinatesMinSec = (((double) coordinates.getMinutesEast() / 60)) + (((double) coordinates.getSecondsEast() / 60) / 100);
+        return ddCoordinates + ddCooordinatesMinSec;
+    }
+
 
     public Coordinates getStart() {
         return start;

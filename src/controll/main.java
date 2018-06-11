@@ -11,18 +11,20 @@ import java.util.List;
  * Created by Marc100 on 08.06.2018.
  */
 public class main {
+    private static World world;
+
 
     public static void main(String[] args) {
         createNewWorld();
+        new MarketOfferGenerator().offerGenerator(world);
         createNewMarketPlace();
         createCompany("asd", 3);
+
     }
 
     public static void createNewWorld() {
-        World world;
         List continentList = new ArrayList<>();
         List europeHarbours = new ArrayList<Harbor>();
-
 
         europeHarbours.add(new Harbor("Valencia", 30, 12000, new Coordinates(39, 29, 00, 0, 22, 0)));
         europeHarbours.add(new Harbor("Lissabon", 20, 10000, new Coordinates(38, 43, 00, 9, 10, 0)));
@@ -32,15 +34,11 @@ public class main {
         continentList.add(new Continent("Europe", (ArrayList<Harbor>) europeHarbours));
 
         world = new World((ArrayList<Continent>) continentList);
-
-//        System.out.print(world.getContinentList().get(0).getHarborList().get(0).getCoordinates().toString() + "\n");
-//        System.out.print(world.getContinentList().get(0).getHarborList().get(1).getCoordinates().toString() + "\n");
-//        System.out.print(world.getContinentList().get(0).getHarborList().get(2).getCoordinates().toString() + "\n");
-//        System.out.print(world.getContinentList().get(0).getHarborList().get(3).getCoordinates().toString() + "\n");
     }
 
     public static void createNewMarketPlace() {
-        Container container1 = new Container(20000,3000, new Date());
+        Container container1 = new Container(20000,3000, new Date(),world.getContinentList().get(0).getHarborList().get(0), world.getContinentList().get(0).getHarborList().get(1));
+        new Harbor("", 0, 0, new Coordinates(0,0,0,0,0,0));
         MarketPlace.getInstance().addContainerToTheMarkedPlace(container1);
     }
 

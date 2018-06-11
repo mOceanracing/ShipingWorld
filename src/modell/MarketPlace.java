@@ -37,7 +37,7 @@ public class MarketPlace {
 
     public void acceptOffer(Container offerContainer, ShipingCompany company) {
         Container container = this.getOfferContainers().remove(this.offerContainers.indexOf(offerContainer));
-        log.add("Container: " + container.toString() + " Company: " + company.getCompanyName());
+        log.add("|| Container: "+ container.toString() + "||  Company: " + company.getCompanyName());
     }
 
     public List<String> getLog() {

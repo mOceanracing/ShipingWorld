@@ -1,6 +1,4 @@
-import modell.Container;
-import modell.MarketPlace;
-import modell.ShipingCompany;
+import modell.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,7 +13,13 @@ public class MarketPlaceTest {
 
     @Test
     public void acceptOfferTest() {
-        Container container = new Container(1000, 3000, new Date(01, 01, 2018));
+        Container container = new Container(
+                1000,
+                3000,
+                new Date(01, 01, 2018),
+                new Harbor("Valencia", 30, 12000, new Coordinates(39, 29, 00, 0, 22, 0)),
+                new Harbor("Lissabon", 20, 10000, new Coordinates(38, 43, 00, 9, 10, 0)));
+
         ShipingCompany company = new ShipingCompany("Name");
 
         marketPlace.addContainerToTheMarkedPlace(container);

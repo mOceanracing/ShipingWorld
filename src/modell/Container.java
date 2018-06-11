@@ -15,12 +15,13 @@ public class Container {
     private Date expectedArrivingDate;
     private Date arrivingDate;
 
-    public Container(int weight, int salary, Date expectedArrivingDate) {
+    public Container(int weight, int salary, Date expectedArrivingDate, Harbor startHarbor, Harbor targetHarbor) {
         this.weight = weight;
         this.salary = salary;
         this.expectedArrivingDate = expectedArrivingDate;
-        this.startHarbor = new Harbor("", 0, 0, new Coordinates(0,0,0,0,0,0));
-        this.targetHarbor = new Harbor("", 0, 0, new Coordinates(0,0,0,0,0,0));
+        this.startHarbor = startHarbor;
+        this.targetHarbor = targetHarbor;
+
     }
 
     public int getMaxWeight() {
@@ -89,6 +90,6 @@ public class Container {
 
     @Override
     public String toString() {
-        return "Weight: " + getWeight() + " Price: " + getSalary() + " Expected arrivingDate:" + getExpectedArrivingDate();
+        return "Weight:" + getWeight() + "|| Price: " + getSalary() + "||  Expected arriving date:" + getExpectedArrivingDate();
     }
 }

@@ -27,6 +27,7 @@ public class Ship {
         this.shipingCompany = shipingCompany;
         this.containersActualOnBoard = 0;
         this.speed = 0;
+        this.pricePerMile = 0.9;
 
         new OfferCalculator().getBestOffersForShip(this, this.getShipingCompany());
     }

@@ -14,7 +14,7 @@ public class OfferCalculator {
     public void getBestOffersForShip(Ship ship, ShipingCompany company) {
         int offers = marketPlace.getOfferContainers().size();
         for (int i = 0; i <= offers; i++) {
-            if (marketPlace.getOfferContainers().size() >= i && marketPlace.getOfferContainers().size() != 0) {
+            if (marketPlace.getOfferContainers().size() > i && marketPlace.getOfferContainers().size() != 0) {
                 Container container = marketPlace.getOfferContainers().get(i);
                 if (offerCalc(container, ship) && ship.getContainerCapacity() > ship.getContainersActualOnBoard()) {
                     MarketPlace.getInstance().acceptOffer(container, company);
@@ -36,7 +36,7 @@ public class OfferCalculator {
 
     private double clacCost(Harbor startHarbor, Harbor tragetHarbor, Ship ship) {
         CoordinateCalculator coordinateCalculator = new CoordinateCalculator(startHarbor.getCoordinates(), tragetHarbor.getCoordinates());
-        return (coordinateCalculator.distance().get(0) + 1) * ship.getPricePerMile();
+        return (coordinateCalculator.distance(startHarbor.getCoordinates(), tragetHarbor.getCoordinates()) * ship.getPricePerMile());
     }
 
     private double clacSalary(Container container) {
